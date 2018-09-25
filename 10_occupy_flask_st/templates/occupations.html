@@ -11,6 +11,7 @@ Prepare to decide your future career!
 {%block content%}
 
 <head>
+<a href="/"> Back to Home!</a>
 <H2>Cool job of the day: {{rand}}</H2>
 <style>
 table, th, td {
@@ -28,7 +29,7 @@ table, th, td {
 	<tr>
 	<td>{{key}}</td>
 	<td>{{table[key][0]}}</td>
-	<td>{{table[key][1]}}</td>
+	<td><a href = {{table[key][1]}}> Click here for more info</a></td>
 	</tr>
 {% endfor %}
 </table>
