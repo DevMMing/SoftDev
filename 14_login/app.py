@@ -11,12 +11,13 @@ from flask import Flask, render_template, session, request,url_for,redirect
 app=Flask(__name__)
 app.secret_key=os.urandom(32)
 
-@app.route("/")
+@app.route("/", methods=["POST"])
 def root():
   #checks if you tried logging out
     try:
-        if request.args["submit"] == "logout":
+        if request.form["submit"] == "logout":
             session.pop("username")
+            redirect(url_for(root()))
     except:
         pass
   #if there is a logged in session
