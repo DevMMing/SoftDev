@@ -24,11 +24,11 @@ def createTable(info, tableName, columnTypes):
 		commandArgs += name + " " + columnTypes[name] + ","
 		colTypes.append(columnTypes[name])
 	commandArgs = commandArgs[:-1]
-	# print(colTypes)
+	#print(colTypes)
 	commandArgs += ")"
-	# print ("CREATE TABLE " + tableName + " "+ commandArgs)
-	c.execute("CREATE TABLE " + tableName + " "+ commandArgs)
-	# c.execute("SELECT * FROM " + tableName)
+	#print ("CREATE TABLE " + tableName + " "+ commandArgs)
+	#c.execute("CREATE TABLE " + tableName + " "+ commandArgs)
+	#c.execute("SELECT * FROM " + tableName)
 	for od in info:
 		i = 0
 		fieldValueArg = "("
@@ -40,20 +40,19 @@ def createTable(info, tableName, columnTypes):
 			i += 1
 		fieldValueArg = fieldValueArg[:-1]
 		fieldValueArg += ")"
-		# print ("INSERT INTO " + tableName + " VALUES " + fieldValueArg)
+		#print ("INSERT INTO " + tableName + " VALUES " + fieldValueArg)
 		c.execute("INSERT INTO " + tableName + " VALUES " + fieldValueArg)
-
 def closeDB ():
 	db.commit() #save changes
 	db.close()  #close database
 
-coursesHeader = {"name":"TEXT","grades":"INTEGER","id":"INTEGER"}
+coursesHeader = {"code":"TEXT","mark":"INTEGER","id":"INTEGER"}
 createTableFromCSV("courses.csv", "coursestable", coursesHeader)
 
 peepsHeader = {"name": "TEXT", "age": "INTEGER", "id": "INTEGER"}
 createTableFromCSV("peeps.csv", "peepstable", peepsHeader)
 
-occupationsHeader = {"jobclass": "TEXT", "percentage":"INTEGER"}
+occupationsHeader = {"Job Class": "TEXT", "Percentage":"INTEGER"}
 createTableFromCSV("occupations.csv", "occupationstable", occupationsHeader)
 
 closeDB()
