@@ -18,7 +18,7 @@ def root():
     response =request.urlopen(textkey)
     html = response.read()
     info =json.loads(html)
-    access=info['incidents'][0]#currently only shows the first problem
+    access=info['incidents'][0]#currently only shows the first incident
     imgstuff="https://www.mapquestapi.com/traffic/v2/flow?key="+key+"&mapLat="+str(access['lat'])+"&mapLng="+str(access['lng'])+"&mapHeight=400&mapWidth=400&mapScale=108335"
     description=access['fullDesc']+"It started from " + access['startTime'][11:] + " on " + access['startTime'][:10]+" and is planned to end " + access['endTime'][11:]+" on "+access['endTime'][:10]
     return render_template("index.html",img=imgstuff,text=description)
