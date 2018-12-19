@@ -1,7 +1,7 @@
 // team quaffpost -- Matthew Ming, Tianrun Liu
-// SoftDev pd7
+// SoftDev pd6
 // K28 -- sequential progression
-// 2018-12-19
+// 2018-12-18
 var fact = function(x){
     if(x < 2){
         return 1;
