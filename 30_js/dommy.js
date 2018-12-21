@@ -24,20 +24,23 @@ var add_item = document.getElementById("b");
 	var currentList = document.getElementById("thelist");
 	currentList.appendChild(newItem);
 });
-/*var show_item = document.getElementsByTagName("LI");
-	show_item.addEventListener('mouseover',function(){
+var show_item_list = document.getElementsByTagName("LI");
+	for(var i = 0 ; i< show_item_list.length;i++){
+	console.log(show_item_list[i].innerHTML);
+	var string = show_item_list[i].innerHTML;
+	show_item_list[i].addEventListener('mouseover',function(string){
 	var header= document.getElementById("h");
-	header.innerHTML="Hello";
-	});*/
+	header.innerHTML=show_item_list[7].innerHTML;
+	});};
 //var remove_item = document.getElementsByTagName("LI");
-var currentList = document.getElementById("thelist");
-	currentList.addEventListener('click',function(){
+//var currentList = document.getElementById("thelist");
+//	currentList.addEventListener('click',function(){
 	//var newItem = document.createElement("LI");
 	//var newContent = document.createTextNode("WORD");
 	//newItem.appendChild(newContent);
 	//var currentList = document.getElementById("thelist");
-	currentList.removeChild(remove_item);
-});
+//	currentList.removeChild(remove_item);
+//});
 var add_item = document.getElementById("fb");
 	add_item.addEventListener('click',function(){
 	var newItem = document.createElement("LI");
