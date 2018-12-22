@@ -24,14 +24,22 @@ var add_item = document.getElementById("b");
 	var currentList = document.getElementById("thelist");
 	currentList.appendChild(newItem);
 });
-var show_item_list = document.getElementsByTagName("LI");
+let show_item_list = document.getElementsByTagName("LI");
 	for(var i = 0 ; i< show_item_list.length;i++){
-	console.log(show_item_list[i].innerHTML);
-	var string = show_item_list[i].innerHTML;
-	show_item_list[i].addEventListener('mouseover',function(string){
+	let string = show_item_list[i].innerHTML;
+	show_item_list[i].addEventListener('mouseover',function(){
 	var header= document.getElementById("h");
-	header.innerHTML=show_item_list[7].innerHTML;
-	});};
+	header.innerHTML=string;
+	});
+	show_item_list[i].addEventListener('mouseout',function(){
+	var header= document.getElementById("h");
+	header.innerHTML="Hello World!";
+	});
+	show_item_list[i].addEventListener('click',function(e){
+		let item = e['target'];
+		item.remove();
+	//})
+	})};
 //var remove_item = document.getElementsByTagName("LI");
 //var currentList = document.getElementById("thelist");
 //	currentList.addEventListener('click',function(){
@@ -48,6 +56,6 @@ var add_item = document.getElementById("fb");
 	var fibResult=fibonacci(fibber);
 	var newContent = document.createTextNode("fib("+fibber.toString()+")="+fibResult.toString());
 	newItem.appendChild(newContent);
-	var currentList = document.getElementById("thelist");
+	var currentList = document.getElementById("thelist2");
 	currentList.appendChild(newItem);
 });
